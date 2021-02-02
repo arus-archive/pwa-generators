@@ -4,5 +4,12 @@
   "description": "Collection of different generators: password, random number, hashes, etc",
   "start_url": "/pwa-generators/",
   "scope": "/pwa-generators/",
-  "display": "standalone"
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "images/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "144x144"
+    }
+  ]
 }
