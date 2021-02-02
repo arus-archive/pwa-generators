@@ -8,6 +8,7 @@ const URLS = [
   "/pwa-generators/script/md5.js",
   "/pwa-generators/script/password.js",
   "/pwa-generators/script/random.js",
+  "/pwa-generators/script/sha.js",
 ];
 
 self.addEventListener("fetch", function (e) {

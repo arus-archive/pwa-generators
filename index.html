@@ -6,12 +6,7 @@
     <meta charset="utf-8" />
     <link rel="manifest" href="/pwa-generators/manifest.json" />
     <link rel="icon" type="image/svg+xml" href="/pwa-generators/favicon.svg" />
-    <script
-      src="/pwa-generators/script/index.js"
-      async
-      defer
-      type="module"
-    ></script>
+    <script async src="/pwa-generators/script/index.js" type="module"></script>
     <style type="text/css">
       html,
       body {
@@ -49,6 +44,18 @@
     </fieldset>
 
     <fieldset>
+      <legend>Password</legend>
+
+      <div>
+        <label for="fldPassword">Password:</label>
+        <input id="fldPassword" type="text" disabled readonly />
+      </div>
+      <div>
+        <button id="btnUpdatePassword">Update</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
       <legend>MD5</legend>
 
       <div>
@@ -62,14 +69,66 @@
     </fieldset>
 
     <fieldset>
-      <legend>Password</legend>
+      <legend>SHA-1</legend>
 
       <div>
-        <label for="fldPassword">Password:</label>
-        <input id="fldPassword" type="text" disabled readonly />
+        <label for="fldSHA1Value">Value:</label>
+        <input id="fldSHA1Value" type="text" />
       </div>
       <div>
-        <button id="btnUpdatePassword">Update</button>
+        <label for="fldSHA1Value">Hash:</label>
+        <input id="fldSHA1Result" type="text" disabled readonly width="100%" />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>SHA-256</legend>
+
+      <div>
+        <label for="fldSHA256Value">Value:</label>
+        <input id="fldSHA256Value" type="text" />
+      </div>
+      <div>
+        <label for="fldSHA256Value">Hash:</label>
+        <input
+          id="fldSHA256Result"
+          type="text"
+          disabled
+          readonly
+          width="100%"
+        />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>SHA-384</legend>
+
+      <div>
+        <label for="fldSHA384Value">Value:</label>
+        <input id="fldSHA384Value" type="text" />
+      </div>
+      <div>
+        <label for="fldSHA384Value">Hash:</label>
+        <input
+          id="fldSHA384Result"
+          type="text"
+          disabled
+          readonly
+          width="100%"
+        />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>SHA-512</legend>
+
+      <div>
+        <label for="fldSHA512Value">Value:</label>
+        <input id="fldSHA512Value" type="text" />
+      </div>
+      <div>
+        <label for="fldSHA512Value">Hash:</label>
+        <input id="fldSHA512Result" type="text" disabled readonly width="100%" />
       </div>
     </fieldset>
   </body>
