@@ -1,0 +1,8 @@
+{
+  "short_name": "Generators",
+  "name": "Generators",
+  "description": "Collection of different generators: password, random number, hashes, etc",
+  "start_url": "/pwa-generators/",
+  "scope": "/pwa-generators/",
+  "display": "standalone"
+}
