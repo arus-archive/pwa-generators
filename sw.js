@@ -1,7 +1,14 @@
 const APP_PREFIX = "pwa_generators";
 const VERSION = "v21.2.2";
 const CACHE_NAME = APP_PREFIX + "_" + VERSION;
-const URLS = ["/pwa-generators/", "/pwa-generators/index.html"];
+const URLS = [
+  "/pwa-generators/",
+  "/pwa-generators/index.html",
+  "/pwa-generators/script/index.js",
+  "/pwa-generators/script/md5.js",
+  "/pwa-generators/script/password.js",
+  "/pwa-generators/script/random.js",
+];
 
 self.addEventListener("fetch", function (e) {
   console.log("fetch request : " + e.request.url);

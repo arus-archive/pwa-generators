@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "pwa-generators/:page", "destination": "/:page" },
+    { "source": "pwa-generators/script/:script", "destination": "/script/:script" }
+  ]
+}
