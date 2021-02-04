@@ -2,6 +2,7 @@ import { md5 } from "./md5.js";
 import { generatePassword } from "./password.js";
 import { getRandom } from "./random.js";
 import { getSHA } from "./sha.js";
+import { Totp } from "./totp.js";
 
 const fldRandomEl = document.getElementById("fldRandom");
 const btnUpdateRandom = document.getElementById("btnUpdateRandom");
@@ -57,3 +58,15 @@ fldSHA512Value.addEventListener("keyup", async (e) => {
     await getSHA(e.target.value, "SHA-512")
   );
 });
+
+const fldTOTPKey = document.getElementById("fldTOTPKey");
+const fldTOTPToken = document.getElementById("fldTOTPToken");
+const btnUpdateTOTP = document.getElementById("btnUpdateTOTP");
+const updateTOTP = async () => {
+  const secret = fldTOTPKey.value;
+  var totp = new Totp();
+  var timeCode = totp.getOtp(secret);
+
+  fldTOTPToken.setAttribute("value", timeCode);
+};
+btnUpdateTOTP.addEventListener("click", updateTOTP);

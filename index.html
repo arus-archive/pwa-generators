@@ -19,8 +19,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
       }
-      fieldset {
+      body > fieldset {
         min-width: 350px;
       }
       fieldset div {
@@ -34,101 +35,111 @@
     <fieldset>
       <legend>Random</legend>
 
-      <div>
-        <label for="fldRandom">Random number:</label>
-        <input id="fldRandom" type="text" disabled readonly />
-      </div>
-      <div>
-        <button id="btnUpdateRandom">Update</button>
-      </div>
+      <fieldset>
+        <legend>Number</legend>
+
+        <div>
+          <label for="fldRandom">Number:</label>
+          <input id="fldRandom" type="text" disabled readonly />
+        </div>
+        <div>
+          <button id="btnUpdateRandom">Update</button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Password</legend>
+
+        <div>
+          <label for="fldPassword">Password:</label>
+          <input id="fldPassword" type="text" disabled readonly />
+        </div>
+        <div>
+          <button id="btnUpdatePassword">Update</button>
+        </div>
+      </fieldset>
     </fieldset>
 
     <fieldset>
-      <legend>Password</legend>
+      <legend>Hash</legend>
+      <fieldset>
+        <legend>MD5</legend>
 
-      <div>
-        <label for="fldPassword">Password:</label>
-        <input id="fldPassword" type="text" disabled readonly />
-      </div>
-      <div>
-        <button id="btnUpdatePassword">Update</button>
-      </div>
+        <div>
+          <label for="fldMD5Value">Value:</label>
+          <input id="fldMD5Value" type="text" />
+        </div>
+        <div>
+          <label for="fldMD5Value">Hash:</label>
+          <input id="fldMD5Result" type="text" disabled readonly />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>SHA-1</legend>
+
+        <div>
+          <label for="fldSHA1Value">Value:</label>
+          <input id="fldSHA1Value" type="text" />
+        </div>
+        <div>
+          <label for="fldSHA1Value">Hash:</label>
+          <input id="fldSHA1Result" type="text" disabled readonly />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>SHA-256</legend>
+
+        <div>
+          <label for="fldSHA256Value">Value:</label>
+          <input id="fldSHA256Value" type="text" />
+        </div>
+        <div>
+          <label for="fldSHA256Value">Hash:</label>
+          <input id="fldSHA256Result" type="text" disabled readonly />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>SHA-384</legend>
+
+        <div>
+          <label for="fldSHA384Value">Value:</label>
+          <input id="fldSHA384Value" type="text" />
+        </div>
+        <div>
+          <label for="fldSHA384Value">Hash:</label>
+          <input id="fldSHA384Result" type="text" disabled readonly />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>SHA-512</legend>
+
+        <div>
+          <label for="fldSHA512Value">Value:</label>
+          <input id="fldSHA512Value" type="text" />
+        </div>
+        <div>
+          <label for="fldSHA512Value">Hash:</label>
+          <input id="fldSHA512Result" type="text" disabled readonly />
+        </div>
+      </fieldset>
     </fieldset>
 
     <fieldset>
-      <legend>MD5</legend>
-
+      <legend>TOTP</legend>
       <div>
-        <label for="fldMD5Value">Value:</label>
-        <input id="fldMD5Value" type="text" />
+        <label for="fldTOTPKey">Key:</label>
+        <input id="fldTOTPKey" type="text" />
       </div>
       <div>
-        <label for="fldMD5Value">Hash:</label>
-        <input id="fldMD5Result" type="text" disabled readonly width="100%" />
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>SHA-1</legend>
-
-      <div>
-        <label for="fldSHA1Value">Value:</label>
-        <input id="fldSHA1Value" type="text" />
+        <label for="fldTOTPToken">Token:</label>
+        <input id="fldTOTPToken" type="text" disabled readonly />
       </div>
       <div>
-        <label for="fldSHA1Value">Hash:</label>
-        <input id="fldSHA1Result" type="text" disabled readonly width="100%" />
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>SHA-256</legend>
-
-      <div>
-        <label for="fldSHA256Value">Value:</label>
-        <input id="fldSHA256Value" type="text" />
-      </div>
-      <div>
-        <label for="fldSHA256Value">Hash:</label>
-        <input
-          id="fldSHA256Result"
-          type="text"
-          disabled
-          readonly
-          width="100%"
-        />
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>SHA-384</legend>
-
-      <div>
-        <label for="fldSHA384Value">Value:</label>
-        <input id="fldSHA384Value" type="text" />
-      </div>
-      <div>
-        <label for="fldSHA384Value">Hash:</label>
-        <input
-          id="fldSHA384Result"
-          type="text"
-          disabled
-          readonly
-          width="100%"
-        />
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>SHA-512</legend>
-
-      <div>
-        <label for="fldSHA512Value">Value:</label>
-        <input id="fldSHA512Value" type="text" />
-      </div>
-      <div>
-        <label for="fldSHA512Value">Hash:</label>
-        <input id="fldSHA512Result" type="text" disabled readonly width="100%" />
+        <button id="btnUpdateTOTP">Update</button>
       </div>
     </fieldset>
   </body>
