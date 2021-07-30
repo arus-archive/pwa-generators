@@ -4,6 +4,15 @@ import { getRandom } from "./random.js";
 import { getSHA } from "./sha.js";
 import { Totp } from "./totp.js";
 
+const fldDarkModeEl = document.getElementById("fldDarkMode");
+fldDarkModeEl.addEventListener("change", (e)=>{
+  if(e.target.value){
+    document.body.classList.add('darkMode')
+  }else{
+    document.body.classList.remove('darkMode')
+  }
+})
+
 const fldRandomEl = document.getElementById("fldRandom");
 const btnUpdateRandom = document.getElementById("btnUpdateRandom");
 const updateRandomNumber = () => {

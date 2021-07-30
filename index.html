@@ -1,155 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Generators</title>
-    <link rel="canonical" href="https://alesarus.github.io/pwa-generators/" />
-    <meta charset="utf-8" />
-    <link rel="manifest" href="/pwa-generators/manifest.json" />
-    <link rel="icon" type="image/svg+xml" href="/pwa-generators/favicon.svg" />
-    <script async src="/pwa-generators/script/index.js" type="module"></script>
-    <style type="text/css">
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-      body > fieldset {
-        min-width: 350px;
-      }
-      fieldset div {
-        padding: 3px 0;
-        display: flex;
-        flex-direction: column;
-      }
-    </style>
-  </head>
-  <body>
-    <fieldset>
-      <legend>Random</legend>
+<head>
+  <title>Generators</title>
+  <link rel="canonical" href="https://alesarus.github.io/pwa-generators/" />
+  <meta charset="utf-8" />
+  <link rel="manifest" href="/pwa-generators/manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="/pwa-generators/favicon.svg" />
+  <script async src="/pwa-generators/script/index.js" type="module"></script>
+  <style type="text/css">
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
 
-      <fieldset>
-        <legend>Number</legend>
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-        <div>
-          <label for="fldRandom">Number:</label>
-          <input id="fldRandom" type="text" disabled readonly />
-        </div>
-        <div>
-          <button id="btnUpdateRandom">Update</button>
-        </div>
-      </fieldset>
+    body>fieldset {
+      min-width: 350px;
+    }
 
-      <fieldset>
-        <legend>Password</legend>
+    fieldset div {
+      padding: 3px 0;
+      display: flex;
+      flex-direction: column;
+    }
 
-        <div>
-          <label for="fldPassword">Password:</label>
-          <input id="fldPassword" type="text" disabled readonly />
-        </div>
-        <div>
-          <button id="btnUpdatePassword">Update</button>
-        </div>
-      </fieldset>
-    </fieldset>
+    .darkMode {
+      background-color: #333;
+      color: #bbb;
+    }
+  </style>
+</head>
+
+<body>
+
+  <fieldset>
+    <legend>Settings</legend>
+
+    <label for="fldDarkMode">Dark Mode</label>
+    <input id="fldDarkMode" type="checkbox" />
+  </fieldset>
+
+  <fieldset>
+    <legend>Random</legend>
 
     <fieldset>
-      <legend>Hash</legend>
-      <fieldset>
-        <legend>MD5</legend>
+      <legend>Number</legend>
 
-        <div>
-          <label for="fldMD5Value">Value:</label>
-          <input id="fldMD5Value" type="text" />
-        </div>
-        <div>
-          <label for="fldMD5Value">Hash:</label>
-          <input id="fldMD5Result" type="text" disabled readonly />
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>SHA-1</legend>
-
-        <div>
-          <label for="fldSHA1Value">Value:</label>
-          <input id="fldSHA1Value" type="text" />
-        </div>
-        <div>
-          <label for="fldSHA1Value">Hash:</label>
-          <input id="fldSHA1Result" type="text" disabled readonly />
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>SHA-256</legend>
-
-        <div>
-          <label for="fldSHA256Value">Value:</label>
-          <input id="fldSHA256Value" type="text" />
-        </div>
-        <div>
-          <label for="fldSHA256Value">Hash:</label>
-          <input id="fldSHA256Result" type="text" disabled readonly />
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>SHA-384</legend>
-
-        <div>
-          <label for="fldSHA384Value">Value:</label>
-          <input id="fldSHA384Value" type="text" />
-        </div>
-        <div>
-          <label for="fldSHA384Value">Hash:</label>
-          <input id="fldSHA384Result" type="text" disabled readonly />
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>SHA-512</legend>
-
-        <div>
-          <label for="fldSHA512Value">Value:</label>
-          <input id="fldSHA512Value" type="text" />
-        </div>
-        <div>
-          <label for="fldSHA512Value">Hash:</label>
-          <input id="fldSHA512Result" type="text" disabled readonly />
-        </div>
-      </fieldset>
+      <div>
+        <label for="fldRandom">Number:</label>
+        <input id="fldRandom" type="text" disabled readonly />
+      </div>
+      <div>
+        <button id="btnUpdateRandom">Update</button>
+      </div>
     </fieldset>
 
     <fieldset>
-      <legend>TOTP</legend>
+      <legend>Password</legend>
+
       <div>
-        <label for="fldTOTPKey">Key:</label>
-        <input id="fldTOTPKey" type="text" />
+        <label for="fldPassword">Password:</label>
+        <input id="fldPassword" type="text" disabled readonly />
       </div>
       <div>
-        <label for="fldTOTPToken">Token:</label>
-        <input id="fldTOTPToken" type="text" disabled readonly />
-      </div>
-      <div>
-        <button id="btnUpdateTOTP">Update</button>
+        <button id="btnUpdatePassword">Update</button>
       </div>
     </fieldset>
-  </body>
-  <script>
-    window.addEventListener("load", () => {
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/pwa-generators/sw.js", {
-          scope: "/pwa-generators/",
-        });
-      }
-    });
-  </script>
+  </fieldset>
+
+  <fieldset>
+    <legend>Hash</legend>
+    <fieldset>
+      <legend>MD5</legend>
+
+      <div>
+        <label for="fldMD5Value">Value:</label>
+        <input id="fldMD5Value" type="text" />
+      </div>
+      <div>
+        <label for="fldMD5Value">Hash:</label>
+        <input id="fldMD5Result" type="text" disabled readonly />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>SHA-1</legend>
+
+      <div>
+        <label for="fldSHA1Value">Value:</label>
+        <input id="fldSHA1Value" type="text" />
+      </div>
+      <div>
+        <label for="fldSHA1Value">Hash:</label>
+        <input id="fldSHA1Result" type="text" disabled readonly />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>SHA-256</legend>
+
+      <div>
+        <label for="fldSHA256Value">Value:</label>
+        <input id="fldSHA256Value" type="text" />
+      </div>
+      <div>
+        <label for="fldSHA256Value">Hash:</label>
+        <input id="fldSHA256Result" type="text" disabled readonly />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>SHA-384</legend>
+
+      <div>
+        <label for="fldSHA384Value">Value:</label>
+        <input id="fldSHA384Value" type="text" />
+      </div>
+      <div>
+        <label for="fldSHA384Value">Hash:</label>
+        <input id="fldSHA384Result" type="text" disabled readonly />
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>SHA-512</legend>
+
+      <div>
+        <label for="fldSHA512Value">Value:</label>
+        <input id="fldSHA512Value" type="text" />
+      </div>
+      <div>
+        <label for="fldSHA512Value">Hash:</label>
+        <input id="fldSHA512Result" type="text" disabled readonly />
+      </div>
+    </fieldset>
+  </fieldset>
+
+  <fieldset>
+    <legend>TOTP</legend>
+    <div>
+      <label for="fldTOTPKey">Key:</label>
+      <input id="fldTOTPKey" type="text" />
+    </div>
+    <div>
+      <label for="fldTOTPToken">Token:</label>
+      <input id="fldTOTPToken" type="text" disabled readonly />
+    </div>
+    <div>
+      <button id="btnUpdateTOTP">Update</button>
+    </div>
+  </fieldset>
+</body>
+<script>
+  window.addEventListener("load", () => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/pwa-generators/sw.js", {
+        scope: "/pwa-generators/",
+      });
+    }
+  });
+</script>
+
 </html>
