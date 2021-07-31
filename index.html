@@ -3,7 +3,8 @@
 
 <head>
   <title>Generators</title>
-  <link rel="canonical" href="https://alesarus.github.io/pwa-generators/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://alexarus.github.io/pwa-generators/" />
   <meta charset="utf-8" />
   <link rel="manifest" href="/pwa-generators/manifest.json" />
   <link rel="icon" type="image/svg+xml" href="/pwa-generators/favicon.svg" />
@@ -17,14 +18,41 @@
       height: 100%;
 
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
       flex-wrap: wrap;
+
+      transition: all 0.5s ease;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .field input {
+      flex-grow: 1;
+    }
+
+    input {
+      transition: all 0.5s ease;
+    }
+
+    input[type="checkbox"] {
+      height: 18px;
+      width: 18px;
+    }
+
+    button {
+      transition: all 0.5s ease;
+    }
+
+    .btnCopy {
+      float: right;
     }
 
     body>fieldset {
-      min-width: 350px;
+      min-width: 300px;
+      flex: 1 1;
     }
 
     fieldset div {
@@ -33,9 +61,23 @@
       flex-direction: column;
     }
 
-    .darkMode {
+    .darkTheme {
+      background-color: #222;
+      color: #ccc;
+    }
+
+    .darkTheme input {
+      background-color: #777;
+      color: #eee;
+    }
+
+    .darkTheme input:disabled {
       background-color: #333;
-      color: #bbb;
+      color: #ccc;
+    }
+
+    .darkTheme button {
+      background-color: #aaa;
     }
   </style>
 </head>
@@ -45,8 +87,8 @@
   <fieldset>
     <legend>Settings</legend>
 
-    <label for="fldDarkMode">Dark Mode</label>
-    <input id="fldDarkMode" type="checkbox" />
+    <input id="fldDarkTheme" type="checkbox" />
+    <label for="fldDarkTheme">Dark Theme</label>
   </fieldset>
 
   <fieldset>
@@ -57,7 +99,10 @@
 
       <div>
         <label for="fldRandom">Number:</label>
-        <input id="fldRandom" type="text" disabled readonly />
+        <div class="field">
+          <input id="fldRandom" type="text" disabled readonly />
+          <button class="btnCopy" data-field="fldRandom">Copy</button>
+        </div>
       </div>
       <div>
         <button id="btnUpdateRandom">Update</button>
@@ -69,7 +114,10 @@
 
       <div>
         <label for="fldPassword">Password:</label>
-        <input id="fldPassword" type="text" disabled readonly />
+        <div class="field">
+          <input id="fldPassword" type="text" disabled readonly />
+          <button class="btnCopy" data-field="fldPassword">Copy</button>
+        </div>
       </div>
       <div>
         <button id="btnUpdatePassword">Update</button>
@@ -88,7 +136,11 @@
       </div>
       <div>
         <label for="fldMD5Value">Hash:</label>
-        <input id="fldMD5Result" type="text" disabled readonly />
+        <div class="field">
+          <input id="fldMD5Result" type="text" disabled readonly />
+          <button class="btnCopy" data-field="fldMD5Result">Copy</button>
+        </div>
+
       </div>
     </fieldset>
 
@@ -101,7 +153,11 @@
       </div>
       <div>
         <label for="fldSHA1Value">Hash:</label>
-        <input id="fldSHA1Result" type="text" disabled readonly />
+        <div class="field">
+          <input id="fldSHA1Result" type="text" disabled readonly />
+          <button class="btnCopy" data-field="fldSHA1Result">Copy</button>
+        </div>
+
       </div>
     </fieldset>
 
@@ -114,7 +170,11 @@
       </div>
       <div>
         <label for="fldSHA256Value">Hash:</label>
-        <input id="fldSHA256Result" type="text" disabled readonly />
+        <div class="field">
+          <input id="fldSHA256Result" type="text" disabled readonly />
+          <button class="btnCopy" data-field="fldSHA256Result">Copy</button>
+        </div>
+
       </div>
     </fieldset>
 
@@ -127,7 +187,11 @@
       </div>
       <div>
         <label for="fldSHA384Value">Hash:</label>
-        <input id="fldSHA384Result" type="text" disabled readonly />
+        <div class="field">
+          <input id="fldSHA384Result" type="text" disabled readonly />
+          <button class="btnCopy" data-field="fldSHA384Result">Copy</button>
+        </div>
+
       </div>
     </fieldset>
 
@@ -140,7 +204,11 @@
       </div>
       <div>
         <label for="fldSHA512Value">Hash:</label>
-        <input id="fldSHA512Result" type="text" disabled readonly />
+        <div class="field">
+          <input id="fldSHA512Result" type="text" disabled readonly />
+          <button class="btnCopy" data-field="fldSHA512Result">Copy</button>
+        </div>
+
       </div>
     </fieldset>
   </fieldset>
@@ -153,7 +221,10 @@
     </div>
     <div>
       <label for="fldTOTPToken">Token:</label>
-      <input id="fldTOTPToken" type="text" disabled readonly />
+      <div class="field">
+        <input id="fldTOTPToken" type="text" disabled readonly />
+        <button class="btnCopy" data-field="fldTOTPToken">Copy</button>
+      </div>
     </div>
     <div>
       <button id="btnUpdateTOTP">Update</button>

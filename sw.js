@@ -1,5 +1,5 @@
 const APP_PREFIX = "pwa_generators";
-const VERSION = "v21.2.4";
+const VERSION = "v21.7.31";
 const CACHE_NAME = APP_PREFIX + "_" + VERSION;
 const URLS = [
   "/pwa-generators/",

@@ -1,81 +1,97 @@
-import { md5 } from "./md5.js";
-import { generatePassword } from "./password.js";
-import { getRandom } from "./random.js";
-import { getSHA } from "./sha.js";
-import { Totp } from "./totp.js";
+import { md5 } from './md5.js';
+import { generatePassword } from './password.js';
+import { getRandom } from './random.js';
+import { getSHA } from './sha.js';
+import { Totp } from './totp.js';
 
-const fldDarkModeEl = document.getElementById("fldDarkMode");
-fldDarkModeEl.addEventListener("change", (e)=>{
-  if(e.target.value){
-    document.body.classList.add('darkMode')
-  }else{
-    document.body.classList.remove('darkMode')
+const storageThemeKey = 'theme';
+
+const fldDarkThemeEl = document.getElementById('fldDarkTheme');
+if (window.localStorage.getItem(storageThemeKey) === 'dark') {
+  fldDarkThemeEl.checked = true;
+  document.body.classList.add('darkTheme');
+}
+fldDarkThemeEl.addEventListener('change', (e) => {
+  if (e.target.checked) {
+    document.body.classList.add('darkTheme');
+  } else {
+    document.body.classList.remove('darkTheme');
   }
+  window.localStorage.setItem(storageThemeKey, e.target.checked ? 'dark' : '')
 })
 
-const fldRandomEl = document.getElementById("fldRandom");
-const btnUpdateRandom = document.getElementById("btnUpdateRandom");
+const fldRandomEl = document.getElementById('fldRandom');
+const btnUpdateRandom = document.getElementById('btnUpdateRandom');
 const updateRandomNumber = () => {
-  fldRandomEl.setAttribute("value", getRandom());
+  fldRandomEl.setAttribute('value', getRandom());
 };
-btnUpdateRandom.addEventListener("click", updateRandomNumber);
+btnUpdateRandom.addEventListener('click', updateRandomNumber);
 updateRandomNumber();
 
-const fldPasswordEl = document.getElementById("fldPassword");
-const btnUpdatePassword = document.getElementById("btnUpdatePassword");
+const fldPasswordEl = document.getElementById('fldPassword');
+const btnUpdatePassword = document.getElementById('btnUpdatePassword');
 const updatePassword = () => {
-  fldPasswordEl.setAttribute("value", generatePassword());
+  fldPasswordEl.setAttribute('value', generatePassword());
 };
-btnUpdatePassword.addEventListener("click", updatePassword);
+btnUpdatePassword.addEventListener('click', updatePassword);
 updatePassword();
 
-const fldMD5Value = document.getElementById("fldMD5Value");
-const fldMD5Result = document.getElementById("fldMD5Result");
-fldMD5Value.addEventListener("keyup", (e) => {
-  fldMD5Result.setAttribute("value", md5(e.target.value));
+const fldMD5Value = document.getElementById('fldMD5Value');
+const fldMD5Result = document.getElementById('fldMD5Result');
+fldMD5Value.addEventListener('keyup', (e) => {
+  fldMD5Result.setAttribute('value', md5(e.target.value));
 });
 
-const fldSHA1Value = document.getElementById("fldSHA1Value");
-const fldSHA1Result = document.getElementById("fldSHA1Result");
-fldSHA1Value.addEventListener("keyup", async (e) => {
-  fldSHA1Result.setAttribute("value", await getSHA(e.target.value, "SHA-1"));
+const fldSHA1Value = document.getElementById('fldSHA1Value');
+const fldSHA1Result = document.getElementById('fldSHA1Result');
+fldSHA1Value.addEventListener('keyup', async (e) => {
+  fldSHA1Result.setAttribute('value', await getSHA(e.target.value, 'SHA-1'));
 });
 
-const fldSHA256Value = document.getElementById("fldSHA256Value");
-const fldSHA256Result = document.getElementById("fldSHA256Result");
-fldSHA256Value.addEventListener("keyup", async (e) => {
+const fldSHA256Value = document.getElementById('fldSHA256Value');
+const fldSHA256Result = document.getElementById('fldSHA256Result');
+fldSHA256Value.addEventListener('keyup', async (e) => {
   fldSHA256Result.setAttribute(
-    "value",
-    await getSHA(e.target.value, "SHA-256")
+    'value',
+    await getSHA(e.target.value, 'SHA-256')
   );
 });
 
-const fldSHA384Value = document.getElementById("fldSHA384Value");
-const fldSHA384Result = document.getElementById("fldSHA384Result");
-fldSHA384Value.addEventListener("keyup", async (e) => {
+const fldSHA384Value = document.getElementById('fldSHA384Value');
+const fldSHA384Result = document.getElementById('fldSHA384Result');
+fldSHA384Value.addEventListener('keyup', async (e) => {
   fldSHA384Result.setAttribute(
-    "value",
-    await getSHA(e.target.value, "SHA-384")
+    'value',
+    await getSHA(e.target.value, 'SHA-384')
   );
 });
 
-const fldSHA512Value = document.getElementById("fldSHA512Value");
-const fldSHA512Result = document.getElementById("fldSHA512Result");
-fldSHA512Value.addEventListener("keyup", async (e) => {
+const fldSHA512Value = document.getElementById('fldSHA512Value');
+const fldSHA512Result = document.getElementById('fldSHA512Result');
+fldSHA512Value.addEventListener('keyup', async (e) => {
   fldSHA512Result.setAttribute(
-    "value",
-    await getSHA(e.target.value, "SHA-512")
+    'value',
+    await getSHA(e.target.value, 'SHA-512')
   );
 });
 
-const fldTOTPKey = document.getElementById("fldTOTPKey");
-const fldTOTPToken = document.getElementById("fldTOTPToken");
-const btnUpdateTOTP = document.getElementById("btnUpdateTOTP");
+const fldTOTPKey = document.getElementById('fldTOTPKey');
+const fldTOTPToken = document.getElementById('fldTOTPToken');
+const btnUpdateTOTP = document.getElementById('btnUpdateTOTP');
 const updateTOTP = async () => {
   const secret = fldTOTPKey.value;
   var totp = new Totp();
   var timeCode = totp.getOtp(secret);
 
-  fldTOTPToken.setAttribute("value", timeCode);
+  fldTOTPToken.setAttribute('value', timeCode);
 };
-btnUpdateTOTP.addEventListener("click", updateTOTP);
+btnUpdateTOTP.addEventListener('click', updateTOTP);
+
+const copyButtons = document.getElementsByClassName('btnCopy');
+for (let i = 0; i < copyButtons.length; i++) {
+  const field = copyButtons[i].dataset['field'];
+  copyButtons[i].addEventListener('click', () => {
+    const fieldEl = document.getElementById(field);
+    navigator.clipboard.writeText(fieldEl.getAttribute('value'));
+  })
+}

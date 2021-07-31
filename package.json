@@ -1,6 +1,6 @@
 {
   "name": "pwa-generators",
-  "version": "21.2.4",
+  "version": "21.7.31",
   "description": "Collection of different generators: password, random number, hashes, etc",
   "main": "index.html",
   "scripts": {
